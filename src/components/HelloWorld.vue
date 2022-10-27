@@ -3,10 +3,16 @@ import { NH1 } from 'naive-ui'
 import { useStore } from '../store/store'
 
 const store = useStore()
+
+import { useAxios } from '@vueuse/integrations/useAxios'
+import Fact from "./Fact.vue";
+
+const { data, isFinished } = useAxios<{ fact: string, length: number}>('https://catfact.ninja/fact')
 </script>
 
 <template>
   <n-h1>{{ store.headline }}</n-h1>
+  <Fact :data="data" v-if="isFinished" />
 </template>
 
 <style scoped>
