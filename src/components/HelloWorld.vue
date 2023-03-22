@@ -5,7 +5,7 @@ import { useStore } from '../store/store'
 const store = useStore()
 
 import { useAxios } from '@vueuse/integrations/useAxios'
-import Fact from "./Fact.vue";
+import Fact from './Fact.vue'
 
 const { data, isFinished } = useAxios<{ fact: string, length: number}>('https://catfact.ninja/fact')
 </script>
